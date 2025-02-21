@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; transition: background 0.3s, color 0.3s; }
+        .dark { background-color: #1a202c; color: #f7fafc; }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 dark:text-white">
+    <div class="container mx-auto p-6">
+        <!-- Hero Section -->
+        <div class="text-center py-10">
+            <img src="profile.jpg" alt="Perfil" class="w-32 h-32 mx-auto rounded-full shadow-lg">
+            <h1 class="text-3xl font-bold mt-4">Tu Nombre</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-300">Tu Rol Profesional</p>
+        </div>
+        
+        <!-- Sobre Mí -->
+        <section class="my-10">
+            <h2 class="text-2xl font-semibold mb-4">Sobre Mí</h2>
+            <p class="text-gray-700 dark:text-gray-400">Breve descripción sobre tu experiencia y habilidades.</p>
+        </section>
+        
+        <!-- Habilidades -->
+        <section class="my-10">
+            <h2 class="text-2xl font-semibold mb-4">Habilidades</h2>
+            <div class="grid grid-cols-3 gap-4 text-center">
+                <div class="p-4 bg-gray-200 dark:bg-gray-700 rounded-lg">HTML</div>
+                <div class="p-4 bg-gray-200 dark:bg-gray-700 rounded-lg">CSS</div>
+                <div class="p-4 bg-gray-200 dark:bg-gray-700 rounded-lg">JavaScript</div>
+            </div>
+        </section>
+        
+        <!-- Contacto -->
+        <section class="my-10">
+            <h2 class="text-2xl font-semibold mb-4">Contacto</h2>
+            <form class="space-y-4">
+                <input type="text" placeholder="Tu Nombre" class="w-full p-2 border rounded-lg">
+                <input type="email" placeholder="Tu Email" class="w-full p-2 border rounded-lg">
+                <textarea placeholder="Mensaje" class="w-full p-2 border rounded-lg"></textarea>
+                <button class="w-full bg-blue-500 text-white p-2 rounded-lg">Enviar</button>
+            </form>
+        </section>
+        
+        <!-- Modo Oscuro/Claro -->
+        <div class="text-center mt-10">
+            <button id="theme-toggle" class="p-2 bg-gray-300 dark:bg-gray-600 rounded-lg">Modo Oscuro/Claro</button>
+        </div>
+    </div>
+
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark');
+        }
+        
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark');
+            localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
+        });
+    </script>
+</body>
+</html>
